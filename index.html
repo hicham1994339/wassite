@@ -1,0 +1,2859 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>منصة حمداد هشام التعليمية للوساطة القضائية</title>
+
+<style>
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --primary:#0b2d4d;
+    --primary2:#123f66;
+    --secondary:#087f8c;
+    --gold:#d6ad3b;
+    --gold2:#f0cc62;
+
+    --bg:#f4f7fa;
+    --card:#ffffff;
+    --text:#17212b;
+    --muted:#687786;
+    --border:#e2e8ef;
+
+    --success:#198754;
+    --danger:#c0392b;
+
+    --shadow:0 12px 35px rgba(15,35,55,.09);
+    --radius:18px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+        "Tahoma",
+        "Arial",
+        sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.9;
+
+    transition:.3s;
+}
+
+/* DARK MODE */
+
+body.dark{
+    --bg:#0d1720;
+    --card:#15232e;
+    --text:#f3f6f8;
+    --muted:#afbdc9;
+    --border:#2c3b48;
+
+    --shadow:0 12px 35px rgba(0,0,0,.3);
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.container{
+    width:min(1250px,92%);
+    margin:auto;
+}
+
+section{
+    padding:85px 0;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-header .small-title{
+    color:var(--secondary);
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.section-header h2{
+    font-size:clamp(28px,4vw,42px);
+    color:var(--primary);
+    margin-bottom:12px;
+}
+
+body.dark .section-header h2{
+    color:#7bd1dc;
+}
+
+.section-header p{
+    max-width:800px;
+    margin:auto;
+    color:var(--muted);
+}
+
+button{
+    font-family:inherit;
+}
+
+.btn{
+    border:none;
+    padding:13px 22px;
+    border-radius:11px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#172b3e;
+}
+
+.btn-dark{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-outline{
+    background:transparent;
+    color:var(--primary);
+    border:1px solid var(--primary);
+}
+
+body.dark .btn-outline{
+    color:#7bd1dc;
+    border-color:#7bd1dc;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(11,45,77,.97);
+    color:white;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.header-inner{
+    min-height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold),
+        var(--gold2)
+    );
+
+    color:#0b2d4d;
+    font-size:22px;
+    font-weight:900;
+}
+
+.brand h1{
+    font-size:18px;
+}
+
+.brand small{
+    display:block;
+    color:#c9d8e5;
+    font-size:11px;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    flex-wrap:wrap;
+}
+
+.nav button{
+    border:0;
+    background:transparent;
+    color:white;
+    padding:9px 10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.nav button:hover{
+    background:rgba(255,255,255,.12);
+}
+
+.menu-button{
+    display:none;
+    background:transparent;
+    color:white;
+    border:0;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:650px;
+
+    display:flex;
+    align-items:center;
+
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(45,154,167,.45),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #071d31,
+            #0b2d4d 50%,
+            #126274
+        );
+
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:50%;
+
+    left:-180px;
+    bottom:-220px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50px;
+
+    color:#f6d878;
+
+    margin-bottom:20px;
+}
+
+.hero h2{
+    font-size:clamp(34px,6vw,65px);
+    line-height:1.25;
+    max-width:950px;
+    margin-bottom:20px;
+}
+
+.hero h2 span{
+    color:var(--gold2);
+}
+
+.hero p{
+    max-width:850px;
+    color:#d7e5ee;
+    font-size:18px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.hero-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+
+    max-width:900px;
+    margin-top:50px;
+}
+
+.stat{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:28px;
+    color:var(--gold2);
+}
+
+.stat span{
+    color:#d2e0e8;
+    font-size:13px;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px;
+    box-shadow:var(--shadow);
+}
+
+.card-icon{
+    width:55px;
+    height:55px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(8,127,140,.12);
+    color:var(--secondary);
+
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+body.dark .card h3{
+    color:#7bd1dc;
+}
+
+.card p{
+    color:var(--muted);
+}
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.intro-layout{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:30px;
+}
+
+.info-box{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:32px;
+    box-shadow:var(--shadow);
+}
+
+.info-box h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+body.dark .info-box h3{
+    color:#7bd1dc;
+}
+
+.info-box p{
+    color:var(--muted);
+    margin-bottom:14px;
+}
+
+.check-list{
+    list-style:none;
+}
+
+.check-list li{
+    margin:10px 0;
+    color:var(--muted);
+}
+
+.check-list li::before{
+    content:"✓";
+    color:var(--success);
+    font-weight:bold;
+    margin-left:8px;
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+}
+
+.timeline-item{
+    display:grid;
+    grid-template-columns:70px 1fr;
+    gap:20px;
+    margin-bottom:18px;
+}
+
+.timeline-number{
+    width:55px;
+    height:55px;
+
+    background:var(--primary);
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
+    font-size:18px;
+}
+
+.timeline-content{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+
+.timeline-content h3{
+    color:var(--primary);
+}
+
+body.dark .timeline-content h3{
+    color:#7bd1dc;
+}
+
+.timeline-content p{
+    color:var(--muted);
+}
+
+/* =========================================================
+   COMPARISON
+========================================================= */
+
+.compare{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.compare-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+    box-shadow:var(--shadow);
+}
+
+.compare-card h3{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+body.dark .compare-card h3{
+    color:#7bd1dc;
+}
+
+.compare-card ul{
+    list-style:none;
+}
+
+.compare-card li{
+    padding:9px 0;
+    border-bottom:1px dashed var(--border);
+    color:var(--muted);
+}
+
+/* =========================================================
+   CASES
+========================================================= */
+
+.case-toolbar{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.search{
+    flex:1;
+    min-width:250px;
+
+    padding:15px;
+
+    border-radius:11px;
+    border:1px solid var(--border);
+
+    background:var(--card);
+    color:var(--text);
+
+    font-family:inherit;
+}
+
+.case-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.case-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.case-card:hover{
+    transform:translateY(-4px);
+}
+
+.case-number{
+    display:inline-flex;
+
+    width:38px;
+    height:38px;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--primary);
+    color:white;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+}
+
+.case-type{
+    display:inline-block;
+
+    padding:4px 10px;
+
+    background:rgba(8,127,140,.12);
+    color:var(--secondary);
+
+    border-radius:30px;
+
+    font-size:12px;
+    margin-right:8px;
+}
+
+.case-card h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+body.dark .case-card h3{
+    color:#7bd1dc;
+}
+
+.case-card p{
+    color:var(--muted);
+}
+
+.case-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:18px;
+    flex-wrap:wrap;
+}
+
+.favorite{
+    border:1px solid var(--border);
+    background:transparent;
+    color:var(--text);
+    padding:9px 12px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.favorite.active{
+    color:#c9184a;
+    border-color:#c9184a;
+}
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+.quiz{
+    max-width:900px;
+    margin:auto;
+}
+
+.question{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:18px;
+    box-shadow:var(--shadow);
+}
+
+.question h3{
+    margin-bottom:15px;
+}
+
+.option{
+    display:block;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    margin:8px 0;
+    cursor:pointer;
+    color:var(--muted);
+}
+
+.option:hover{
+    background:rgba(8,127,140,.07);
+}
+
+.quiz-result{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+}
+
+/* =========================================================
+   GLOSSARY
+========================================================= */
+
+.glossary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.term{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.term strong{
+    display:block;
+    color:var(--primary);
+    font-size:18px;
+    margin-bottom:8px;
+}
+
+body.dark .term strong{
+    color:#7bd1dc;
+}
+
+.term p{
+    color:var(--muted);
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.72);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:3000;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(950px,100%);
+    max-height:90vh;
+    overflow:auto;
+
+    background:var(--card);
+    color:var(--text);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    top:12px;
+    left:15px;
+
+    width:40px;
+    height:40px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.08);
+    color:var(--text);
+
+    cursor:pointer;
+    font-size:24px;
+}
+
+.modal-box h2{
+    color:var(--primary);
+    margin-bottom:20px;
+}
+
+body.dark .modal-box h2{
+    color:#7bd1dc;
+}
+
+.detail{
+    margin:18px 0;
+    padding:18px;
+
+    background:rgba(8,127,140,.06);
+
+    border-right:4px solid var(--secondary);
+
+    border-radius:10px;
+}
+
+.detail h4{
+    color:var(--secondary);
+    margin-bottom:7px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#071d31;
+    color:white;
+    padding:55px 0;
+    text-align:center;
+}
+
+footer h2{
+    color:var(--gold2);
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#c5d3df;
+}
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+.top{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+
+    width:48px;
+    height:48px;
+
+    border:0;
+    border-radius:50%;
+
+    background:var(--gold);
+    color:#0b2d4d;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:1500;
+
+    font-size:20px;
+    font-weight:bold;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    .grid,
+    .glossary{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .intro-layout{
+        grid-template-columns:1fr;
+    }
+
+    .hero-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:750px){
+
+    .menu-button{
+        display:block;
+    }
+
+    .nav{
+        display:none;
+        width:100%;
+        flex-direction:column;
+    }
+
+    .nav.open{
+        display:flex;
+    }
+
+    .nav button{
+        width:100%;
+    }
+
+    .header-inner{
+        flex-wrap:wrap;
+    }
+
+    .grid,
+    .case-grid,
+    .glossary,
+    .compare{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero-stats{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero-stats{
+        grid-template-columns:1fr;
+    }
+
+    .timeline-item{
+        grid-template-columns:50px 1fr;
+        gap:10px;
+    }
+
+    .timeline-number{
+        width:45px;
+        height:45px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container header-inner">
+
+    <div class="brand">
+
+        <div class="logo">
+            ح
+        </div>
+
+        <div>
+            <h1>
+                منصة حمداد هشام
+            </h1>
+
+            <small>
+                التعليمية للوساطة القضائية
+            </small>
+        </div>
+
+    </div>
+
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+        ☰
+    </button>
+
+    <nav class="nav" id="nav">
+
+        <button onclick="go('home')">
+            الرئيسية
+        </button>
+
+        <button onclick="go('definition')">
+            التعريف
+        </button>
+
+        <button onclick="go('principles')">
+            المبادئ
+        </button>
+
+        <button onclick="go('procedure')">
+            الإجراءات
+        </button>
+
+        <button onclick="go('cases')">
+            القضايا التجارية
+        </button>
+
+        <button onclick="go('quiz')">
+            الاختبار
+        </button>
+
+        <button onclick="go('glossary')">
+            المصطلحات
+        </button>
+
+        <button onclick="toggleDark()">
+            🌙
+        </button>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+<div class="container hero-content">
+
+    <span class="badge">
+        منصة تعليمية موجهة لطلبة الحقوق
+    </span>
+
+    <h2>
+        منصة <span>حمداد هشام</span>
+        التعليمية للوساطة القضائية
+    </h2>
+
+    <p>
+        مساحة أكاديمية رقمية تساعد طالب الحقوق على فهم
+        الوساطة القضائية من الجانب النظري والتطبيقي،
+        من خلال التعريفات والمبادئ والمراحل والنماذج
+        التجارية والاختبارات والمصطلحات القانونية.
+    </p>
+
+    <div class="hero-actions">
+
+        <button
+            class="btn btn-primary"
+            onclick="go('definition')">
+            ابدأ دراسة الوساطة
+        </button>
+
+        <button
+            class="btn btn-dark"
+            onclick="go('cases')">
+            دراسة القضايا التجارية
+        </button>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+        <div class="stat">
+            <strong>10+</strong>
+            <span>قضايا تجارية تعليمية</span>
+        </div>
+
+        <div class="stat">
+            <strong>12</strong>
+            <span>محورًا دراسيًا</span>
+        </div>
+
+        <div class="stat">
+            <strong>20+</strong>
+            <span>مصطلحًا قانونيًا</span>
+        </div>
+
+        <div class="stat">
+            <strong>100%</strong>
+            <span>موجهة لطلبة الحقوق</span>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DEFINITION
+===================================================== -->
+
+<section id="definition">
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        المحور الأول
+    </div>
+
+    <h2>
+        الوساطة القضائية: شرح شامل
+    </h2>
+
+    <p>
+        مدخل أكاديمي لفهم الوساطة ودورها كإحدى وسائل
+        تسوية النزاعات.
+    </p>
+
+</div>
+
+
+<div class="intro-layout">
+
+<div class="info-box">
+
+    <h3>
+        أولًا: ما المقصود بالوساطة القضائية؟
+    </h3>
+
+    <p>
+        الوساطة القضائية هي إجراء يهدف إلى مساعدة أطراف
+        النزاع على الوصول إلى حل توافقي بمساعدة شخص
+        محايد ومستقل يسمى الوسيط.
+    </p>
+
+    <p>
+        والفكرة الأساسية في الوساطة ليست أن يقوم الوسيط
+        بإصدار حكم على الأطراف، وإنما أن يساعدهم على
+        التواصل وفهم المصالح المتعارضة والبحث عن
+        خيارات يمكن أن تقود إلى اتفاق.
+    </p>
+
+    <p>
+        وفي الإطار الجزائري، نظم قانون الإجراءات المدنية
+        والإدارية الوساطة ضمن الطرق البديلة لحل النزاعات،
+        ونص على أن القاضي يعرض إجراء الوساطة على الخصوم
+        في المواد التي يسمح فيها القانون بذلك.
+    </p>
+
+    <p>
+        كما يمكن أن تشمل الوساطة كل النزاع أو جزءًا منه،
+        وهو ما يسمح للأطراف بمعالجة نقطة محددة من النزاع
+        بدلًا من محاولة حل جميع المسائل دفعة واحدة.
+    </p>
+
+</div>
+
+
+<div class="info-box">
+
+    <h3>
+        ثانيًا: لماذا تهم طالب الحقوق؟
+    </h3>
+
+    <ul class="check-list">
+
+        <li>
+            فهم وسائل تسوية النزاعات خارج الحكم التقليدي.
+        </li>
+
+        <li>
+            التمييز بين الوساطة والصلح والتحكيم.
+        </li>
+
+        <li>
+            اكتساب مهارات تحليل النزاعات التجارية.
+        </li>
+
+        <li>
+            دراسة مصالح الأطراف وليس فقط طلباتهم القانونية.
+        </li>
+
+        <li>
+            تعلم صياغة الحلول التوافقية.
+        </li>
+
+        <li>
+            فهم دور الوسيط وحدود تدخله.
+        </li>
+
+        <li>
+            ربط النظرية القانونية بالتطبيق العملي.
+        </li>
+
+    </ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PRINCIPLES
+===================================================== -->
+
+<section id="principles">
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        المحور الثاني
+    </div>
+
+    <h2>
+        المبادئ الأساسية للوساطة
+    </h2>
+
+    <p>
+        مبادئ ينبغي لطالب الحقوق استيعابها قبل دراسة
+        الحالات التطبيقية.
+    </p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+    <div class="card-icon">⚖️</div>
+
+    <h3>الحياد</h3>
+
+    <p>
+        يجب أن يتعامل الوسيط مع أطراف النزاع دون
+        تفضيل طرف على آخر، وأن يحافظ على توازن
+        العملية التفاوضية.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">🔐</div>
+
+    <h3>السرية</h3>
+
+    <p>
+        يلتزم الوسيط بالحفاظ على سرية ما يطلع عليه
+        بمناسبة مهمته، وهو ما يمثل عنصرًا مهمًا في
+        توفير بيئة مناسبة للحوار.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">🤝</div>
+
+    <h3>الطابع التوافقي</h3>
+
+    <p>
+        الغاية هي الوصول إلى حل يقبله الأطراف،
+        وليس فرض حل عليهم من جانب الوسيط.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">🧭</div>
+
+    <h3>الاستقلال</h3>
+
+    <p>
+        ينبغي أن يمارس الوسيط مهمته باستقلالية
+        بعيدًا عن المصالح التي قد تؤثر في حياده.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📜</div>
+
+    <h3>حسن النية</h3>
+
+    <p>
+        نجاح الوساطة يتطلب مشاركة جادة وبناءة من
+        الأطراف ورغبة حقيقية في البحث عن حل.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">🎯</div>
+
+    <h3>التركيز على الحل</h3>
+
+    <p>
+        تركز الوساطة على المستقبل وإمكانية معالجة
+        النزاع بدل الاكتفاء بإعادة إنتاج الخصومة.
+    </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROCEDURE
+===================================================== -->
+
+<section id="procedure">
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        المحور الثالث
+    </div>
+
+    <h2>
+        كيف تسير الوساطة؟
+    </h2>
+
+    <p>
+        عرض تعليمي مبسط للمراحل الأساسية مع مراعاة
+        الإطار الإجرائي المنظم للوساطة.
+    </p>
+
+</div>
+
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+    <div class="timeline-number">
+        1
+    </div>
+
+    <div class="timeline-content">
+
+        <h3>
+            طرح الوساطة وقبولها
+        </h3>
+
+        <p>
+            يبدأ المسار عندما تعرض الوساطة في الحالة التي
+            يسمح بها القانون ويقبل الخصوم اللجوء إليها.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="timeline-item">
+
+    <div class="timeline-number">
+        2
+    </div>
+
+    <div class="timeline-content">
+
+        <h3>
+            تعيين الوسيط
+        </h3>
+
+        <p>
+            يتم تعيين الوسيط وفق القواعد القانونية المنظمة
+            لذلك، ويشترط فيه الحياد والاستقلال والكفاءة
+            اللازمة للنظر في النزاع.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="timeline-item">
+
+    <div class="timeline-number">
+        3
+    </div>
+
+    <div class="timeline-content">
+
+        <h3>
+            الاجتماع بالأطراف
+        </h3>
+
+        <p>
+            يستمع الوسيط إلى الأطراف ويفهم وقائع النزاع
+            ومطالبهم ومصالحهم.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="timeline-item">
+
+    <div class="timeline-number">
+        4
+    </div>
+
+    <div class="timeline-content">
+
+        <h3>
+            تحديد نقاط النزاع
+        </h3>
+
+        <p>
+            يتم تفكيك النزاع إلى مسائل محددة حتى تصبح
+            نقاط الخلاف والحلول الممكنة أكثر وضوحًا.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="timeline-item">
+
+    <div class="timeline-number">
+        5
+    </div>
+
+    <div class="timeline-content">
+
+        <h3>
+            التفاوض وصناعة الخيارات
+        </h3>
+
+        <p>
+            يساعد الوسيط الأطراف على اقتراح البدائل
+            ودراسة إمكانيات التوافق دون فرض حل عليهم.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="timeline-item">
+
+    <div class="timeline-number">
+        6
+    </div>
+
+    <div class="timeline-content">
+
+        <h3>
+            الاتفاق أو إنهاء الوساطة
+        </h3>
+
+        <p>
+            إذا توصل الأطراف إلى اتفاق يتم إثباته وفق
+            الإجراءات القانونية. وإذا لم يتم التوصل إلى
+            اتفاق، تنتهي الوساطة وتستمر الخصومة وفق
+            القواعد المطبقة.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     LEGAL FRAMEWORK
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        المحور الرابع
+    </div>
+
+    <h2>
+        الإطار القانوني الجزائري
+    </h2>
+
+    <p>
+        ملخص تعليمي للنصوص المتعلقة بالوساطة في قانون
+        الإجراءات المدنية والإدارية.
+    </p>
+
+</div>
+
+
+<div class="grid">
+
+<div class="card">
+
+    <div class="card-icon">📖</div>
+
+    <h3>
+        المادة 994
+    </h3>
+
+    <p>
+        تتعلق بعرض إجراء الوساطة على الخصوم في المواد
+        التي يسمح فيها القانون، مع بيان الحالات المستثناة
+        في النص.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📖</div>
+
+    <h3>
+        المادة 995
+    </h3>
+
+    <p>
+        تقرر أن الوساطة يمكن أن تمتد إلى كل النزاع
+        أو إلى جزء منه.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📖</div>
+
+    <h3>
+        المادة 996
+    </h3>
+
+    <p>
+        تحدد مدة الوساطة بثلاثة أشهر، مع إمكانية تجديدها
+        مرة واحدة للمدة نفسها وفق الشروط الواردة في النص.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📖</div>
+
+    <h3>
+        المادة 998
+    </h3>
+
+    <p>
+        تتعلق بالشروط الواجب توفرها في الشخص الطبيعي
+        المكلف بالوساطة، ومن بينها الحياد والاستقلال
+        والتأهيل.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📖</div>
+
+    <h3>
+        المادة 1003
+    </h3>
+
+    <p>
+        تنظم إخبار القاضي بما توصل إليه الخصوم، وفي حالة
+        الاتفاق يحرر الوسيط محضرًا يتضمن محتوى الاتفاق.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <div class="card-icon">📖</div>
+
+    <h3>
+        المادة 1004
+    </h3>
+
+    <p>
+        تتعلق بمصادقة القاضي على محضر الاتفاق واعتباره
+        سندًا تنفيذيًا وفق النص.
+    </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     DIFFERENCE
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        للمقارنة
+    </div>
+
+    <h2>
+        الوساطة والصلح والتحكيم
+    </h2>
+
+</div>
+
+
+<div class="compare">
+
+<div class="compare-card">
+
+    <h3>
+        الوساطة
+    </h3>
+
+    <ul>
+
+        <li>
+            تدخل وسيط محايد
+        </li>
+
+        <li>
+            الهدف الوصول إلى اتفاق
+        </li>
+
+        <li>
+            الوسيط لا يفرض حكمًا على الأطراف
+        </li>
+
+        <li>
+            تقوم على الحوار والتفاوض
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="compare-card">
+
+    <h3>
+        الصلح
+    </h3>
+
+    <ul>
+
+        <li>
+            يمكن أن يتم باتفاق الأطراف
+        </li>
+
+        <li>
+            يمكن أن يسعى إليه القاضي
+        </li>
+
+        <li>
+            يثبت وفق الإجراءات القانونية
+        </li>
+
+        <li>
+            هدفه إنهاء النزاع وديًا
+        </li>
+
+    </ul>
+
+</div>
+
+
+<div class="compare-card">
+
+    <h3>
+        التحكيم
+    </h3>
+
+    <ul>
+
+        <li>
+            يقوم على اتفاق التحكيم في الحالات الجائزة
+        </li>
+
+        <li>
+            يتدخل محكم للفصل في النزاع
+        </li>
+
+        <li>
+            يختلف عن الوساطة من حيث وظيفة الغير
+        </li>
+
+        <li>
+            ينتهي بقرار تحكيمي وفق القواعد المنظمة
+        </li>
+
+    </ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COMMERCIAL CASES
+===================================================== -->
+
+<section id="cases">
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        المحور الخامس
+    </div>
+
+    <h2>
+        مختبر القضايا التجارية
+    </h2>
+
+    <p>
+        عشر حالات تجارية افتراضية صممت للتدريب على
+        تحليل النزاع وتحديد المصالح وبناء التسوية.
+    </p>
+
+</div>
+
+
+<div class="case-toolbar">
+
+    <input
+        id="caseSearch"
+        class="search"
+        type="search"
+        placeholder="ابحث في القضايا التجارية..."
+        oninput="searchCases()">
+
+    <button
+        class="btn btn-primary"
+        onclick="showFavorites()">
+        ★ المفضلة
+    </button>
+
+    <button
+        class="btn btn-outline"
+        onclick="showAllCases()">
+        عرض الكل
+    </button>
+
+</div>
+
+
+<div
+    class="case-grid"
+    id="caseGrid">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIZ
+===================================================== -->
+
+<section id="quiz">
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        المحور السادس
+    </div>
+
+    <h2>
+        اختبر نفسك
+    </h2>
+
+    <p>
+        اختبار قصير حول أساسيات الوساطة القضائية.
+    </p>
+
+</div>
+
+
+<div class="quiz">
+
+<div class="question">
+
+<h3>
+1. ما الهدف الأساسي من الوساطة؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q1" value="a">
+إصدار حكم قضائي
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="b">
+مساعدة الأطراف على الوصول إلى تسوية
+</label>
+
+<label class="option">
+<input type="radio" name="q1" value="c">
+فرض عقوبة
+</label>
+
+</div>
+
+
+<div class="question">
+
+<h3>
+2. ما الدور الأساسي للوسيط؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q2" value="a">
+فرض الحل
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="b">
+مساعدة الأطراف على الحوار والتفاوض
+</label>
+
+<label class="option">
+<input type="radio" name="q2" value="c">
+تمثيل أحد الأطراف
+</label>
+
+</div>
+
+
+<div class="question">
+
+<h3>
+3. من مبادئ الوساطة:
+</h3>
+
+<label class="option">
+<input type="radio" name="q3" value="a">
+الحياد
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="b">
+الانحياز
+</label>
+
+<label class="option">
+<input type="radio" name="q3" value="c">
+الإكراه
+</label>
+
+</div>
+
+
+<div class="question">
+
+<h3>
+4. هل يمكن أن تشمل الوساطة جزءًا من النزاع؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q4" value="a">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q4" value="b">
+لا
+</label>
+
+</div>
+
+
+<div class="question">
+
+<h3>
+5. هل يستطيع الوسيط فرض حكم قضائي على الأطراف؟
+</h3>
+
+<label class="option">
+<input type="radio" name="q5" value="a">
+نعم
+</label>
+
+<label class="option">
+<input type="radio" name="q5" value="b">
+لا
+</label>
+
+</div>
+
+
+<button
+    class="btn btn-primary"
+    onclick="calculateQuiz()">
+    تصحيح الاختبار
+</button>
+
+
+<div
+    class="quiz-result"
+    id="quizResult">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     GLOSSARY
+===================================================== -->
+
+<section id="glossary">
+
+<div class="container">
+
+<div class="section-header">
+
+    <div class="small-title">
+        المحور السابع
+    </div>
+
+    <h2>
+        قاموس الوساطة القضائية
+    </h2>
+
+</div>
+
+
+<div class="glossary">
+
+<div class="term">
+<strong>الوسيط</strong>
+<p>
+الشخص المكلف بمساعدة الأطراف على محاولة الوصول إلى تسوية.
+</p>
+</div>
+
+<div class="term">
+<strong>النزاع</strong>
+<p>
+خلاف بين طرفين أو أكثر حول حقوق أو التزامات أو مصالح.
+</p>
+</div>
+
+<div class="term">
+<strong>التسوية</strong>
+<p>
+حل توافقي يهدف إلى إنهاء النزاع أو جزء منه.
+</p>
+</div>
+
+<div class="term">
+<strong>الحياد</strong>
+<p>
+عدم الانحياز إلى أحد أطراف النزاع.
+</p>
+</div>
+
+<div class="term">
+<strong>السرية</strong>
+<p>
+حماية المعلومات المرتبطة بإجراءات الوساطة.
+</p>
+</div>
+
+<div class="term">
+<strong>التفاوض</strong>
+<p>
+عملية حوار وتبادل مقترحات بهدف الوصول إلى اتفاق.
+</p>
+</div>
+
+<div class="term">
+<strong>المصلحة</strong>
+<p>
+ما يسعى الطرف إلى تحقيقه أو حمايته من خلال التسوية.
+</p>
+</div>
+
+<div class="term">
+<strong>الوسائل البديلة</strong>
+<p>
+آليات مختلفة عن الحكم القضائي التقليدي لمعالجة النزاعات.
+</p>
+</div>
+
+<div class="term">
+<strong>الاتفاق</strong>
+<p>
+نتيجة تفاوضية يوافق عليها الأطراف في حدود القانون.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<h2>
+منصة حمداد هشام التعليمية للوساطة القضائية
+</h2>
+
+<p>
+منصة أكاديمية تعليمية موجهة لطلبة الحقوق.
+</p>
+
+<p>
+القضايا الواردة في المنصة افتراضية ومخصصة للتدريب
+والتعلم وليست استشارات قانونية.
+</p>
+
+<p>
+© 2026 - جميع الحقوق محفوظة
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="caseModal"
+    onclick="outsideModal(event)">
+
+<div class="modal-box">
+
+<button
+    class="close"
+    onclick="closeCase()">
+    ×
+</button>
+
+<div id="caseDetails"></div>
+
+</div>
+
+</div>
+
+
+<button
+    class="top"
+    id="topButton"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+</button>
+
+
+<script>
+
+/* =========================================================
+   COMMERCIAL CASE DATABASE
+========================================================= */
+
+const cases = [
+
+{
+id:1,
+type:"عقد تجاري",
+title:"نزاع حول تأخر توريد البضائع",
+
+facts:
+"أبرمت شركة توزيع عقدًا مع مورد لتوريد كمية من الأجهزة خلال أجل محدد. تأخر المورد في التسليم، وادعت شركة التوزيع أن التأخير سبب لها خسائر تجارية.",
+
+issue:
+"هل يمكن معالجة آثار التأخير من خلال إعادة تنظيم التنفيذ والتعويض أو المقابل التوافقي الذي يقبله الطرفان؟",
+
+interests:
+"مصلحة الشركة الأولى هي ضمان استمرار التوريد وتقليل الخسارة، بينما تتمثل مصلحة المورد في الحفاظ على العقد وتجنب إنهائه.",
+
+mediation:
+"ناقش الوسيط احتياجات الطرفين، وتم اقتراح جدول جديد للتسليم مع آلية واضحة للتنفيذ ومراجعة بعض الالتزامات المالية.",
+
+solution:
+"اتفق الطرفان افتراضيًا على جدول توريد جديد، وتحديد آلية لمعالجة التأخير، مع استمرار العلاقة التجارية.",
+
+lesson:
+"تعلم الطالب أن النزاع التجاري قد لا يكون هدفه إنهاء العلاقة، بل إعادة تنظيمها."
+},
+
+{
+id:2,
+type:"بيع تجاري",
+title:"نزاع حول مطابقة البضاعة للمواصفات",
+
+facts:
+"اشترت شركة كمية من المنتجات من شركة أخرى، وبعد الاستلام ادعت المشتري أن جزءًا من المنتجات لا يطابق المواصفات المتفق عليها.",
+
+issue:
+"هل يمكن استبدال المنتجات محل الخلاف أو تخفيض المقابل أو اتخاذ حل تجاري آخر؟",
+
+interests:
+"المشتري يريد الحصول على منتجات مطابقة، والبائع يريد الحفاظ على الصفقة وتجنب خسارة العميل.",
+
+mediation:
+"تم تحديد الكمية محل الخلاف ومقارنتها بالمواصفات المتفق عليها، ثم بحث الوسيط مع الطرفين خيارات الاستبدال والتعويض التجاري.",
+
+solution:
+"تم افتراضيًا الاتفاق على استبدال الجزء غير المطابق ومنح أجل إضافي للتسليم.",
+
+lesson:
+"أهمية تحديد النقطة الفنية محل الخلاف بدل تحويل النزاع إلى خصومة شاملة."
+},
+
+{
+id:3,
+type:"شراكة تجارية",
+title:"نزاع بين شريكين حول توزيع الأرباح",
+
+facts:
+"نشأ خلاف بين شريكين في مشروع تجاري حول طريقة احتساب الأرباح وتوزيع المصاريف.",
+
+issue:
+"كيف يمكن إعادة تنظيم الحسابات وتحديد طريقة شفافة لتوزيع الأرباح؟",
+
+interests:
+"كل شريك يريد حماية حقه المالي، مع وجود مصلحة مشتركة في استمرار المشروع.",
+
+mediation:
+"تم اقتراح مراجعة الحسابات وتحديد المصاريف المقبولة وإنشاء آلية دورية للمحاسبة.",
+
+solution:
+"اتفق الطرفان افتراضيًا على مراجعة الحسابات وتحديد آلية جديدة للتقارير المالية الدورية.",
+
+lesson:
+"الوساطة التجارية قد تعالج أصل المشكلة المستقبلية وليس فقط المبلغ المتنازع عليه."
+},
+
+{
+id:4,
+type:"وكالة تجارية",
+title:"نزاع حول إنهاء علاقة وكالة",
+
+facts:
+"نشأ خلاف بين شركة منتجة ووكيل تجاري بسبب رغبة الشركة في إنهاء العلاقة التجارية، بينما تمسك الوكيل باستمرار العلاقة.",
+
+issue:
+"هل يمكن الوصول إلى ترتيبات انتقالية تنهي النزاع وتحافظ على المصالح التجارية؟",
+
+interests:
+"الشركة تريد إعادة تنظيم توزيع منتجاتها، والوكيل يريد حماية مصالحه التجارية.",
+
+mediation:
+"ناقش الوسيط إمكانية تحديد فترة انتقالية، وتسوية الحسابات والطلبات القائمة.",
+
+solution:
+"تم افتراضيًا الاتفاق على فترة انتقالية لتصفية الطلبات السابقة وتنظيم إنهاء العلاقة بصورة متدرجة.",
+
+lesson:
+"الحلول التجارية لا تقتصر على نعم أو لا، ويمكن أن تتضمن مراحل انتقالية."
+},
+
+{
+id:5,
+type:"خدمات تجارية",
+title:"نزاع حول عقد خدمات",
+
+facts:
+"تعاقدت شركة مع مؤسسة لتقديم خدمات تقنية، وادعت الشركة أن مستوى الخدمة لم يكن مطابقًا لما تم الاتفاق عليه.",
+
+issue:
+"هل يمكن تحسين مستوى الخدمة ووضع مؤشرات أداء بدل إنهاء العقد مباشرة؟",
+
+interests:
+"العميل يريد خدمة أفضل، ومقدم الخدمة يريد الاحتفاظ بالعميل.",
+
+mediation:
+"تم تحديد نقاط القصور ومناقشة خطة تحسين تدريجية ومؤشرات أداء واضحة.",
+
+solution:
+"اتفق الطرفان افتراضيًا على خطة تحسين ومراجعة دورية لمستوى الخدمة.",
+
+lesson:
+"يمكن للوساطة أن تحول النزاع إلى خطة إصلاح قابلة للقياس."
+},
+
+{
+id:6,
+type:"مقاولة تجارية",
+title:"نزاع حول إنجاز مشروع",
+
+facts:
+"تعاقدت شركة مع مؤسسة مقاولات لإنجاز أعمال داخل منشأة تجارية. وقع خلاف حول مدة الإنجاز وبعض الأعمال الإضافية.",
+
+issue:
+"كيف يمكن تحديد الأعمال الأصلية والإضافية وإعادة ضبط الجدول الزمني؟",
+
+interests:
+"صاحب المشروع يريد سرعة الإنجاز، والمقاول يريد احتساب الأعمال الإضافية.",
+
+mediation:
+"تم تقسيم النزاع إلى ثلاثة عناصر: الأعمال الأصلية، الأعمال الإضافية، والآجال.",
+
+solution:
+"تم افتراضيًا الاتفاق على جدول زمني جديد وتحديد الأعمال الإضافية وآلية اعتمادها.",
+
+lesson:
+"تقسيم النزاع إلى مسائل مستقلة يساعد على الوصول إلى تسوية."
+},
+
+{
+id:7,
+type:"توزيع تجاري",
+title:"نزاع حول منطقة التوزيع",
+
+facts:
+"اختلفت شركتان حول نطاق جغرافي مخصص لتوزيع منتجات معينة، وادعت كل شركة أن الأخرى تجاوزت حدود نشاطها.",
+
+issue:
+"هل يمكن إعادة تحديد مناطق النشاط وقنوات البيع؟",
+
+interests:
+"كل شركة تريد حماية حصتها السوقية، مع وجود مصلحة مشتركة في استمرار التعاون.",
+
+mediation:
+"تمت مناقشة الأسواق والمناطق محل الخلاف واقتراح تقسيم واضح للمجالات.",
+
+solution:
+"اتفق الطرفان افتراضيًا على تحديد المناطق وقنوات البيع ووضع آلية للتنسيق.",
+
+lesson:
+"وضوح الالتزامات المستقبلية قد يكون أهم من التركيز على النزاع السابق."
+},
+
+{
+id:8,
+type:"فاتورة تجارية",
+title:"نزاع حول فواتير مستحقة",
+
+facts:
+"تأخرت شركة في دفع عدة فواتير، بينما ادعت أنها تحتاج إلى مراجعة بعض البنود قبل السداد.",
+
+issue:
+"كيف يمكن التوصل إلى جدول دفع يراعي الوضع المالي للطرفين؟",
+
+interests:
+"الدائن يريد تحصيل مستحقاته، والمدين يريد تنظيم السداد دون توقف نشاطه.",
+
+mediation:
+"تمت مراجعة الفواتير وتحديد المبالغ غير المتنازع عليها والمبالغ محل النقاش.",
+
+solution:
+"تم افتراضيًا الاتفاق على سداد المبالغ غير المتنازع عليها وجدولة الباقي وفق آجال متفق عليها.",
+
+lesson:
+"تحديد الجزء غير المتنازع عليه يمكن أن يفتح الطريق أمام التسوية."
+},
+
+{
+id:9,
+type:"تجارة إلكترونية",
+title:"نزاع حول تنفيذ طلبات إلكترونية",
+
+facts:
+"نشأ خلاف بين متجر إلكتروني وشركة توريد بسبب تأخر تنفيذ عدد من الطلبات خلال فترة تجارية مزدحمة.",
+
+issue:
+"هل يمكن وضع نظام تعويض وخطة لتحسين التنفيذ بدل إنهاء التعاون؟",
+
+interests:
+"المتجر يريد حماية سمعته أمام العملاء، والمورد يريد استمرار العلاقة.",
+
+mediation:
+"تم بحث أسباب التأخير ووضع مؤشرات زمنية للطلبات وآلية للتعامل مع الحالات الاستثنائية.",
+
+solution:
+"اتفق الطرفان افتراضيًا على خطة تشغيلية جديدة مع مراجعة شهرية للأداء.",
+
+lesson:
+"الوساطة التجارية مناسبة أحيانًا للحفاظ على العلاقات الاقتصادية طويلة المدى."
+},
+
+{
+id:10,
+type:"ملكية فكرية تجارية",
+title:"نزاع حول استعمال علامة تجارية",
+
+facts:
+"ادعت شركة أن شركة أخرى تستعمل علامة مشابهة في نشاط تجاري قريب، مما أدى إلى خلاف حول طريقة استعمال العلامة.",
+
+issue:
+"هل يمكن الوصول إلى ترتيبات تجارية تحد من أسباب الالتباس وتحمي المصالح القانونية لكل طرف؟",
+
+interests:
+"كل شركة تريد حماية علامتها ومركزها التجاري.",
+
+mediation:
+"تم تحديد نقاط التشابه ومناقشة مجالات النشاط والأسواق وطريقة العرض التجاري.",
+
+solution:
+"تم افتراضيًا الاتفاق على ترتيبات واضحة بشأن طريقة الاستعمال والعرض في نطاقات محددة، مع الالتزام بمراجعة الاتفاق وفق القانون.",
+
+lesson:
+"بعض النزاعات التجارية تحتاج إلى حلول تنظيمية دقيقة وليس مجرد دفع مبلغ مالي."
+}
+
+];
+
+
+/* =========================================================
+   RENDER CASES
+========================================================= */
+
+let currentCases = [...cases];
+
+function renderCases(list = cases){
+
+    const grid =
+        document.getElementById("caseGrid");
+
+    grid.innerHTML = "";
+
+    if(list.length === 0){
+
+        grid.innerHTML = `
+            <div class="card">
+                <h3>لا توجد نتائج</h3>
+                <p>
+                    لم نجد قضية مطابقة للبحث.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    list.forEach(item => {
+
+        const favorite =
+            getFavorites().includes(item.id);
+
+        const article =
+            document.createElement("article");
+
+        article.className = "case-card";
+
+        article.dataset.id = item.id;
+
+        article.innerHTML = `
+
+            <span class="case-number">
+                ${item.id}
+            </span>
+
+            <span class="case-type">
+                ${item.type}
+            </span>
+
+            <h3>
+                ${item.title}
+            </h3>
+
+            <p>
+                ${item.facts.substring(0,180)}...
+            </p>
+
+            <div class="case-buttons">
+
+                <button
+                    class="btn btn-primary"
+                    onclick="openCase(${item.id})">
+                    دراسة القضية
+                </button>
+
+                <button
+                    class="favorite ${favorite ? "active":""}"
+                    onclick="toggleFavorite(${item.id},this)">
+                    ${favorite ? "★ محفوظة" : "☆ مفضلة"}
+                </button>
+
+            </div>
+        `;
+
+        grid.appendChild(article);
+
+    });
+
+}
+
+
+/* =========================================================
+   OPEN CASE
+========================================================= */
+
+function openCase(id){
+
+    const item =
+        cases.find(c => c.id === id);
+
+    if(!item) return;
+
+    const content = `
+
+        <span class="case-type">
+            ${item.type}
+        </span>
+
+        <h2>
+            القضية التجارية رقم ${item.id}:
+            ${item.title}
+        </h2>
+
+        <div class="detail">
+
+            <h4>
+                1. الوقائع
+            </h4>
+
+            <p>
+                ${item.facts}
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h4>
+                2. الإشكالية
+            </h4>
+
+            <p>
+                ${item.issue}
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h4>
+                3. مصالح الأطراف
+            </h4>
+
+            <p>
+                ${item.interests}
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h4>
+                4. دور الوسيط
+            </h4>
+
+            <p>
+                ${item.mediation}
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h4>
+                5. التسوية الافتراضية
+            </h4>
+
+            <p>
+                ${item.solution}
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h4>
+                6. الدرس المستفاد لطالب الحقوق
+            </h4>
+
+            <p>
+                ${item.lesson}
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <h4>
+                تنبيه أكاديمي
+            </h4>
+
+            <p>
+                هذه القضية افتراضية أُعدت لأغراض التعليم
+                والتدريب على تحليل الوساطة التجارية، ولا
+                تمثل ملفًا قضائيًا حقيقيًا أو استشارة قانونية.
+            </p>
+
+        </div>
+    `;
+
+    document.getElementById("caseDetails")
+        .innerHTML = content;
+
+    document.getElementById("caseModal")
+        .classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeCase(){
+
+    document.getElementById("caseModal")
+        .classList.remove("show");
+
+}
+
+function outsideModal(event){
+
+    if(event.target.id === "caseModal"){
+        closeCase();
+    }
+
+}
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        closeCase();
+    }
+
+});
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchCases(){
+
+    const query =
+        document.getElementById("caseSearch")
+        .value
+        .trim()
+        .toLowerCase();
+
+    currentCases =
+        cases.filter(item => {
+
+            const text = `
+                ${item.title}
+                ${item.type}
+                ${item.facts}
+                ${item.issue}
+                ${item.interests}
+            `.toLowerCase();
+
+            return text.includes(query);
+
+        });
+
+    renderCases(currentCases);
+
+}
+
+
+/* =========================================================
+   FAVORITES
+========================================================= */
+
+function getFavorites(){
+
+    return JSON.parse(
+        localStorage.getItem("mediationFavorites") || "[]"
+    );
+
+}
+
+
+function toggleFavorite(id,button){
+
+    let favorites =
+        getFavorites();
+
+    if(favorites.includes(id)){
+
+        favorites =
+            favorites.filter(
+                item => item !== id
+            );
+
+    }else{
+
+        favorites.push(id);
+
+    }
+
+    localStorage.setItem(
+        "mediationFavorites",
+        JSON.stringify(favorites)
+    );
+
+    renderCases(currentCases);
+
+}
+
+
+function showFavorites(){
+
+    const favorites =
+        getFavorites();
+
+    const list =
+        cases.filter(
+            item => favorites.includes(item.id)
+        );
+
+    renderCases(list);
+
+}
+
+
+function showAllCases(){
+
+    document.getElementById("caseSearch").value = "";
+
+    currentCases = [...cases];
+
+    renderCases(currentCases);
+
+}
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+function calculateQuiz(){
+
+    const answers = {
+
+        q1:"b",
+        q2:"b",
+        q3:"a",
+        q4:"a",
+        q5:"b"
+
+    };
+
+    let score = 0;
+
+    Object.keys(answers).forEach(question => {
+
+        const selected =
+            document.querySelector(
+                `input[name="${question}"]:checked`
+            );
+
+        if(
+            selected &&
+            selected.value === answers[question]
+        ){
+
+            score++;
+
+        }
+
+    });
+
+
+    const result =
+        document.getElementById("quizResult");
+
+    result.style.display = "block";
+
+
+    if(score === 5){
+
+        result.style.background = "#d1e7dd";
+        result.style.color = "#0f5132";
+
+        result.innerHTML = `
+            <strong>ممتاز جدًا! 🎓</strong><br>
+            حصلت على 5/5. لديك فهم قوي للأساسيات.
+        `;
+
+    }
+
+    else if(score >= 3){
+
+        result.style.background = "#fff3cd";
+        result.style.color = "#664d03";
+
+        result.innerHTML = `
+            <strong>نتيجة جيدة 👍</strong><br>
+            حصلت على ${score}/5.
+            راجع بعض المفاهيم ثم أعد الاختبار.
+        `;
+
+    }
+
+    else{
+
+        result.style.background = "#f8d7da";
+        result.style.color = "#842029";
+
+        result.innerHTML = `
+            <strong>تحتاج إلى مراجعة 📚</strong><br>
+            حصلت على ${score}/5.
+            ننصحك بقراءة قسم التعريف والمبادئ والإجراءات.
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function go(id){
+
+    const element =
+        document.getElementById(id);
+
+    if(element){
+
+        element.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+    document
+        .getElementById("nav")
+        .classList.remove("open");
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMenu(){
+
+    document
+        .getElementById("nav")
+        .classList.toggle("open");
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+        "mediationDark",
+        document.body.classList.contains("dark")
+        ? "on"
+        : "off"
+    );
+
+}
+
+
+if(
+    localStorage.getItem("mediationDark")
+    === "on"
+){
+
+    document.body.classList.add("dark");
+
+}
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+window.addEventListener("scroll",function(){
+
+    const button =
+        document.getElementById("topButton");
+
+    if(window.scrollY > 500){
+
+        button.style.display = "block";
+
+    }else{
+
+        button.style.display = "none";
+
+    }
+
+});
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+renderCases();
+
+</script>
+
+</body>
+</html>
